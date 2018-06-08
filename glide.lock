@@ -1,0 +1,16 @@
+hash: 5468b1596a1fe2886a1b96317bb980e0e9f6775af4721f7198807128a2ed2dbc
+updated: 2018-06-08T12:52:44.1672035-04:00
+imports:
+- name: github.com/gorilla/context
+  version: 08b5f424b9271eedf6f9f0ce86cb9396ed337a42
+- name: github.com/gorilla/mux
+  version: e3702bed27f0d39777b0b37b664b6280e8ef8fbf
+- name: github.com/lib/pq
+  version: 90697d60dd844d5ef6ff15135d0203f65d2f53b8
+- name: github.com/pkg/errors
+  version: 645ef00459ed84a119197bfb8d8205042c6df63d
+- name: github.com/pressly/goose
+  version: 95600eb369b1f657efd54a401ab85d0647a1db80
+- name: github.com/urfave/cli
+  version: cfb38830724cc34fedffe9a2a29fb54fa9169cd1
+testImports: []
