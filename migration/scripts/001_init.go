@@ -13,7 +13,7 @@ func init() {
 // Up001 applies this migration
 func Up001(tx *sql.Tx) error {
 	_, err := tx.Exec(`
-    CREATE TABLE users(
+    CREATE TABLE h_user (
       character_id INT NOT NULL,
       character_name VARCHAR(128) NOT NULL,
       created_on TIMESTAMP,
@@ -26,6 +26,6 @@ func Up001(tx *sql.Tx) error {
 
 // Down001 downgrades this migration
 func Down001(tx *sql.Tx) error {
-	_, err := tx.Exec("DROP TABLE users;")
+	_, err := tx.Exec("DROP TABLE h_user;")
 	return err
 }
