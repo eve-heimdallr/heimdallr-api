@@ -58,5 +58,12 @@ func OAuthVerifyAuthCode(authCode string, clientID string, clientSecret string, 
 
 // OAuthFingerprint creates a client fingerprint based on an HTTP request, for redundant security
 func OAuthFingerprint(r *http.Request) string {
-	return fmt.Sprintf("%s++%s", r.RemoteAddr, r.UserAgent())
+	remoteAddr := r.RemoteAddr
+	if xff := r.Header.Get("X-Forwarded-For"); xff != "" {
+		// https://stackoverflow.com/a/18517550/6162879
+		xffParts := strings.Split(xff, ",")
+		remoteAddr = strings.TrimSpace(xffParts[len(xffParts)])
+	}
+
+	return fmt.Sprintf("%s++%s", remoteAddr, r.UserAgent())
 }
