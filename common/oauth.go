@@ -62,7 +62,7 @@ func OAuthFingerprint(r *http.Request) string {
 	if xff := r.Header.Get("X-Forwarded-For"); xff != "" {
 		// https://stackoverflow.com/a/18517550/6162879
 		xffParts := strings.Split(xff, ",")
-		remoteAddr = strings.TrimSpace(xffParts[len(xffParts)])
+		remoteAddr = strings.TrimSpace(xffParts[len(xffParts)-1])
 	}
 
 	return fmt.Sprintf("%s++%s", remoteAddr, r.UserAgent())
