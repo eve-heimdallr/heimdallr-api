@@ -177,7 +177,7 @@ func (h oAuthCallbackHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 
-	uiSession := common.NewUISession(userDetails.CharacterID, int(tokenID))
+	uiSession := common.NewUISession(userDetails.CharacterID, userDetails.CharacterName, int(tokenID))
 	db.InsertUISession(tx, uiSession)
 
 	jwt := uiSession.JWT()
